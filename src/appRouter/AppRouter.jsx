@@ -5,8 +5,8 @@ import { TrakerlyRoutes } from '../trakerly/routes/TrakerlyRoutes';
 export const AppRouter = () => {
   return (
     <Routes>
-        <Route path='/' element={ <TrakerlyRoutes /> }/>
-        <Route path='auth' element={ <AuthRoutes /> }/>
+        <Route path='/*' element={ <TrakerlyRoutes /> }/>
+        <Route path='auth/*' element={ <AuthRoutes /> }/>
     </Routes>
   )
 }
