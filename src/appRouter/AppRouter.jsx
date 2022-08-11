@@ -1,11 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import { AuthRoutes } from '../auth/routes/AuthRoutes';
+import { LandingPage } from '../pages/LandingPage';
 import { TrakerlyRoutes } from '../trakerly/routes/TrakerlyRoutes';
 
 export const AppRouter = () => {
   return (
     <Routes>
-        <Route path='/*' element={ <TrakerlyRoutes /> }/>
+        <Route path='/' element={ <LandingPage /> }/>
+        <Route path='trakery/*' element={ <TrakerlyRoutes /> }/>
         <Route path='auth/*' element={ <AuthRoutes /> }/>
     </Routes>
   )

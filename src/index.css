@@ -1,1 +1,26 @@
+.landing-container{
+    height: 100vh;
+    background: #8D8CC0;
+    font-family: 'Roboto Mono', monospace;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: center;
+}
+
+/* .trakerly{
+    font-size: 96px;
+    font-weight: 900;
+    color: #FFFFFF; 
+    margin-top: 0;
+    margin-left: 60px;
+    margin-bottom: 0; 
+} 
+*/
+/* .p1{
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-left: 60px;
+} */
+
 
