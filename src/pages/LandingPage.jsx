@@ -2,6 +2,7 @@ import { Box, Button, Stack, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 
+
 export const LandingPage = () => {
     let navigate = useNavigate();
 
@@ -23,15 +24,10 @@ export const LandingPage = () => {
                 variant="p" 
                 className="p1"
                 sx={{ color:'#FFFFFF', mx:{ xs: 5, md:8 }, display:{ xs:'none', md:'block' } }}
-
                 >
                 The first step to be successful is to control your finances. <br />
                 Keep an eye on how your money is moving. <br /> All your incomes and outcomes in one place
                 </Typography>
-
-                <Box sx={{ display:{ xs:'block', md:'none' },  mx:{xs:5, md:8} }}>
-                    <img src="assets/images/cards.png" alt="" />
-                </Box>
 
                 <Typography 
                 component='h1' 
@@ -62,10 +58,6 @@ export const LandingPage = () => {
                         Register
                     </Button>
                 </Stack>
-            </Box>
-
-            <Box sx={{ display:{ xs:'none', md:'block' } }}>
-                <img src="assets/images/cards.png" alt="" />
             </Box>
         </Box>
 

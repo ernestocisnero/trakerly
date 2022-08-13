@@ -2,9 +2,9 @@
     height: 100vh;
     background: #8D8CC0;
     font-family: 'Roboto Mono', monospace;
-    display: grid;
-    grid-template-columns: auto auto;
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .trakerly{
