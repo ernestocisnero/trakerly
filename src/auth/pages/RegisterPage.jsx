@@ -7,13 +7,15 @@ export const RegisterPage = () => {
   
   const { register, handleSubmit, formState:{ errors } } = useForm({ criteriaMode: "all" });
 
-  const onSubmit = ( data )=>{
-    console.log(data);
+  const validateLength = (value)=>{ 
+    if( value.length < 6 ) return "Password should be at least 6 characters length";
   }
 
-  const validateLength = (value)=>{ 
-    if( value.length < 6 ) return "Password should be at least 6 characters";
+  const onSubmit = ( data )=>{
+    const { name, email, password } = data;
+    console.log(name, email, password);
   }
+
 
   return (
     <AuthLayout>

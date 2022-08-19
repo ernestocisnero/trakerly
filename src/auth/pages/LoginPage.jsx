@@ -71,9 +71,11 @@ export const LoginPage = () => {
             </Grid>
           </Grid>
 
-          <Grid container direction='row' justifyContent='end'> Don't have an account?&nbsp; 
-            <Link component={Link} color='inherit' to='/auth/register' sx={{ ml: 1 }}>
+          <Grid container direction='row' justifyContent='end' sx={{ color:'primary.main' }}> Don't have an account?&nbsp; 
+            <Link color='inherit' to='/auth/register'>
+            <Typography sx={{ color:'primary.main'}}>
               Create a new one.
+            </Typography>
             </Link>
           </Grid>
         </Grid>
