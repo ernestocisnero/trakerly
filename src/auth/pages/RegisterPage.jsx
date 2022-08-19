@@ -1,10 +1,15 @@
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthLayout } from "../layout/AuthLayout";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Grid, TextField, Typography } from "@mui/material";
+import { RegisterNewUser } from "../../appStore/Thunks/authThunks";
 
 export const RegisterPage = () => {
+
+  const { status } = useSelector( state => state.auth );
   
+  const dispatch = useDispatch();
   const { register, handleSubmit, formState:{ errors } } = useForm({ criteriaMode: "all" });
 
   const validateLength = (value)=>{ 
@@ -12,8 +17,7 @@ export const RegisterPage = () => {
   }
 
   const onSubmit = ( data )=>{
-    const { name, email, password } = data;
-    console.log(name, email, password);
+    dispatch( RegisterNewUser( data ) );
   }
 
 
@@ -66,7 +70,8 @@ export const RegisterPage = () => {
               variant="contained" 
               sx={{ backgroundColor:'primary.main' }}
               fullWidth>
-                Create account
+                { status === 'checking'? <CircularProgress />: <Typography>Create account</Typography> }
+                
               </Button>
             </Grid>
           </Grid>
