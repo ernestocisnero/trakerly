@@ -3,11 +3,14 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 
+
 export const LoginPage = () => {
 
   const handleSubmit = ( event )=>{
     event.preventDefault();
     console.log("Submitted");
+    
+    
   }
 
   const handleGoogle = ( event )=>{
@@ -26,6 +29,7 @@ export const LoginPage = () => {
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
+              name="email"
               label='email'
               type='email'
               placeholder='example@email.com'
@@ -35,6 +39,7 @@ export const LoginPage = () => {
 
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
+              name="password"
               label='password'
               type='password'
               placeholder='password'

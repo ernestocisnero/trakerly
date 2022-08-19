@@ -17,7 +17,7 @@ export const AuthLayout = ( { children } ) => {
                 sx={{ backgroundColor: 'white', padding: 3, borderRadius: 2, width:{sm:450} }}
             >
 
-                <Typography variant='h5' sx={{ mb: 1 }}> </Typography>
+                <Typography variant='h5' component='h5' sx={{ mb: 1, color:'primary.main' }}> Create account:</Typography>
 
                 { children }
             </Grid>
