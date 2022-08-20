@@ -71,7 +71,6 @@ export const RegisterPage = () => {
               sx={{ backgroundColor:'primary.main' }}
               fullWidth>
                 { status === 'checking'? <CircularProgress />: <Typography>Create account</Typography> }
-                
               </Button>
             </Grid>
           </Grid>

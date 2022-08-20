@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material"
+import { Grid } from "@mui/material"
 
 export const AuthLayout = ( { children } ) => {
   return (
@@ -16,8 +16,6 @@ export const AuthLayout = ( { children } ) => {
                 xs={3}
                 sx={{ backgroundColor: 'white', padding: 3, borderRadius: 2, width:{sm:450} }}
             >
-
-                <Typography variant='h5' component='h5' sx={{ mb: 1, color:'primary.main' }}> Create account:</Typography>
 
                 { children }
             </Grid>
