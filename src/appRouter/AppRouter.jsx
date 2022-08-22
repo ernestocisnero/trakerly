@@ -7,7 +7,7 @@ export const AppRouter = () => {
   return (
     <Routes>
         <Route path='/' element={ <LandingPage /> }/>
-        <Route path='trakery/*' element={ <TrakerlyRoutes /> }/>
+        <Route path='trakerly/*' element={ <TrakerlyRoutes /> }/>
         <Route path='auth/*' element={ <AuthRoutes /> }/>
     </Routes>
   )

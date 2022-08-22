@@ -1,6 +1,10 @@
+import { Route, Routes } from "react-router-dom"
+import { TemporalPage } from "../pages/TemporalPage"
 
 export const TrakerlyRoutes = () => {
   return (
-    <div>TrakerlyRoutes</div>
+    <Routes>
+      <Route path="temporalPage" element={ <TemporalPage /> } />
+    </Routes>
   )
 }
