@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { Google } from "@mui/icons-material";
-import { Box, Button, CircularProgress, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 import { LogInUserWithEmailPassword, SignInWithGoogle } from "../../appStore/Thunks/authThunks";
+import { LoadingProgress } from '../components/LoadingProgress';
 
 
 export const LoginPage = () => {
@@ -59,15 +60,16 @@ export const LoginPage = () => {
             {errors.password  && (<Typography sx={{ color:'error.main' }}>{ errors.password.types.validate }</Typography>)}
           </Grid>
 
-          <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+          { (status === 'checking')
+          ? <LoadingProgress />
+          :<Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12} sm={6}>
               <Button 
               type="submit" 
               variant="contained" 
               sx={{ backgroundColor:'primary.main' }}
               fullWidth>
-                { status === 'checking'? <CircularProgress />: <Typography>Login</Typography> }
-                
+              <Typography>Login</Typography>
               </Button>
             </Grid>
 
@@ -75,14 +77,14 @@ export const LoginPage = () => {
               <Button 
               variant="contained" 
               sx={{ backgroundColor:'primary.main' }}
-              onClick={ handleGoogle }
+              onClick={ handleGoogle }  
               fullWidth>
-                
                 <Google />
-                { status === 'checking'? <CircularProgress />: <Typography sx={{ ml: 1 }}>Google</Typography> }
+                <Typography sx={{ ml: 1 }}>Google</Typography>
               </Button>
             </Grid>
           </Grid>
+          }
 
           <Grid container direction='row' justifyContent='end' sx={{ color:'primary.main' }}> Don't have an account?&nbsp; 
             <Link color='inherit' to='/auth/register'>

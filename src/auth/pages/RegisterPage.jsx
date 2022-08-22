@@ -2,8 +2,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthLayout } from "../layout/AuthLayout";
-import { Box, Button, CircularProgress, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { RegisterNewUser } from "../../appStore/Thunks/authThunks";
+import { LoadingProgress } from "../components/LoadingProgress";
 
 export const RegisterPage = () => {
 
@@ -63,17 +64,20 @@ export const RegisterPage = () => {
             {errors.password  && (<Typography sx={{ color:'error.main' }}>{ errors.password.types.validate }</Typography>)}
           </Grid>
 
-          <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+          { status === 'checking'
+          ? <LoadingProgress />
+          :<Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12}>
               <Button 
               type="submit" 
               variant="contained" 
               sx={{ backgroundColor:'primary.main' }}
               fullWidth>
-                { status === 'checking'? <CircularProgress />: <Typography>Create account</Typography> }
+                <Typography>Create account</Typography>
               </Button>
             </Grid>
           </Grid>
+          }
 
           <Grid container direction='row' justifyContent='end' sx={{ color:'primary.main' }}>Already have an account?&nbsp;  
             <Link  color='inherit' to='/auth'>
