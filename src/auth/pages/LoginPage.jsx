@@ -4,7 +4,7 @@ import { Google } from "@mui/icons-material";
 import { Box, Button, CircularProgress, Grid, TextField, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { LogInUserWithEmailPassword } from "../../appStore/Thunks/authThunks";
+import { LogInUserWithEmailPassword, SignInWithGoogle } from "../../appStore/Thunks/authThunks";
 
 
 export const LoginPage = () => {
@@ -25,7 +25,7 @@ export const LoginPage = () => {
 
   const handleGoogle = ( event )=>{
     event.preventDefault();
-    console.log("Submitted Google");
+    dispatch( SignInWithGoogle() );
   }
 
   return (
@@ -76,10 +76,10 @@ export const LoginPage = () => {
               variant="contained" 
               sx={{ backgroundColor:'primary.main' }}
               onClick={ handleGoogle }
-              fullWidth 
-              >
+              fullWidth>
+                
                 <Google />
-                <Typography sx={{ ml: 1 }}>Google</Typography>
+                { status === 'checking'? <CircularProgress />: <Typography sx={{ ml: 1 }}>Google</Typography> }
               </Button>
             </Grid>
           </Grid>

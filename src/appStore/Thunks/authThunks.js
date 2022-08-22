@@ -1,5 +1,8 @@
-import { registerWithEmailPassword, SigninUserEmailPassword } from "../../firebase/providers";
+import { registerWithEmailPassword, SignInGoogle, SigninUserEmailPassword } from "../../firebase/providers";
 import { authenticating, login, logout } from "../Slices/authSlice"
+
+
+
 
 export const RegisterNewUser = ( { name, email, password } )=>{
     return async ( dispatch )=>{
@@ -25,5 +28,19 @@ export const LogInUserWithEmailPassword = ( { email, password } )=>{
         if( !response.ok ) return dispatch( logout( response ) );
         
         dispatch( login( response ) )
+    }
+}
+
+export const SignInWithGoogle = ()=>{
+
+    return async ( dispatch )=>{
+        dispatch( authenticating() );
+
+        const response = await SignInGoogle();
+        
+        if( !response.ok ) return dispatch( logout( response ) );
+        
+        dispatch( login( response ) )
+        
     }
 }
