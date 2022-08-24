@@ -6,12 +6,9 @@ import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 import { LogInUserWithEmailPassword, SignInWithGoogle } from "../../appStore/Thunks/authThunks";
 import { LoadingProgress } from '../components/LoadingProgress';
-import { useNavigate } from 'react-router-dom';
 
 
 export const LoginPage = () => {
-  
-  let navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { status } = useSelector( state=> state.auth );
@@ -25,7 +22,7 @@ export const LoginPage = () => {
 
   const onSubmit = ( data )=>{
     dispatch(LogInUserWithEmailPassword( data ));
-    if( status === 'authenticated' ) navigate( "/trakerly/temporalPage", { replace: true } );
+    console.log("hadfhlahflhasl")
   }
 
   const handleGoogle = ( event )=>{
