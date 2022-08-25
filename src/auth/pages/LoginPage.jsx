@@ -22,7 +22,6 @@ export const LoginPage = () => {
 
   const onSubmit = ( data )=>{
     dispatch(LogInUserWithEmailPassword( data ));
-    console.log("hadfhlahflhasl")
   }
 
   const handleGoogle = ( event )=>{
