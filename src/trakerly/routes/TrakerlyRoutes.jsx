@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom"
-import { TemporalPage } from "../pages/TemporalPage"
+import { Overview } from "../pages/Overview"
 
 export const TrakerlyRoutes = () => {
   return (
     <Routes>
-      <Route path="/temporalPage" element={ <TemporalPage /> } />
+      <Route path="/overview" element={ <Overview /> } />
     </Routes>
   )
 }
