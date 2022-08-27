@@ -15,7 +15,7 @@ export const Navbar = () => {
                 '& .MuiDrawer-paper': {
                     width: drawerWidth,
                     boxSizing: 'border-box',
-                },
+                }
             }}
             variant="permanent"
             anchor="left"
