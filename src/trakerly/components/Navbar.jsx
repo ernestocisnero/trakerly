@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Drawer, List, ListItem, ListItemButton, ListItemIcon } from "@mui/material"
 import { Window, AddCircleOutline, RemoveCircleOutline, CalendarMonth } from '@mui/icons-material';
 
@@ -7,6 +8,34 @@ import { UserProfile } from "./UserProfile";
 const drawerWidth = 80;
 
 export const Navbar = () => {
+
+    let navigate = useNavigate();
+
+    const handleClick = (event, id)=>{
+        event.preventDefault();
+
+        const idIcon = id;
+
+        switch (idIcon) {
+            case 'overview':
+                navigate("../overview");
+            break;
+
+            case 'addIncome':
+                navigate("../addIncome");
+            break;
+            case 'addOutcome':
+                navigate("../addOutcome");
+            break;
+            case 'monthlyView':
+                navigate("../monthlyView");
+            break;
+        
+            default:
+                break;
+        }
+    }
+
     return (
         <Drawer
             sx={{
@@ -15,7 +44,9 @@ export const Navbar = () => {
                 '& .MuiDrawer-paper': {
                     width: drawerWidth,
                     boxSizing: 'border-box',
+                    backgroundColor:'primary.main'
                 }
+                
             }}
             variant="permanent"
             anchor="left"
@@ -24,7 +55,7 @@ export const Navbar = () => {
                 <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <Window />
+                            <Window id='overview' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'overview' ) }/>
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
@@ -32,7 +63,7 @@ export const Navbar = () => {
                 <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <AddCircleOutline />
+                            <AddCircleOutline id='addIncome' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'addIncome' ) }/>
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
@@ -40,7 +71,7 @@ export const Navbar = () => {
                 <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <RemoveCircleOutline />
+                            <RemoveCircleOutline id='addOutcome' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'addOutcome' ) }/>
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
@@ -48,7 +79,7 @@ export const Navbar = () => {
                 <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <CalendarMonth />
+                            <CalendarMonth id='monthlyView' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'monthlyView' ) }/>
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
