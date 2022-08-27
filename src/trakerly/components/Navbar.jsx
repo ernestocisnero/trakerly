@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Drawer, List, ListItem, ListItemButton, ListItemIcon } from "@mui/material"
+import { Drawer, List, ListItem, ListItemButton, ListItemIcon, Tooltip } from "@mui/material"
 import { Window, AddCircleOutline, RemoveCircleOutline, CalendarMonth } from '@mui/icons-material';
 
-import { UserProfile } from "./UserProfile";
+import { AccountMenu } from "./AccountMenu";
 
 
 const drawerWidth = 80;
@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     let navigate = useNavigate();
 
-    const handleClick = (event, id)=>{
+    const handleClick = (event, id) => {
         event.preventDefault();
 
         const idIcon = id;
@@ -19,18 +19,18 @@ export const Navbar = () => {
         switch (idIcon) {
             case 'overview':
                 navigate("../overview");
-            break;
+                break;
 
             case 'addIncome':
                 navigate("../addIncome");
-            break;
+                break;
             case 'addOutcome':
                 navigate("../addOutcome");
-            break;
+                break;
             case 'monthlyView':
                 navigate("../monthlyView");
-            break;
-        
+                break;
+
             default:
                 break;
         }
@@ -44,48 +44,56 @@ export const Navbar = () => {
                 '& .MuiDrawer-paper': {
                     width: drawerWidth,
                     boxSizing: 'border-box',
-                    backgroundColor:'primary.main'
+                    backgroundColor: 'primary.main'
                 }
-                
+
             }}
             variant="permanent"
             anchor="left"
         >
             <List>
-                <ListItem disablePadding sx={{ my:5 }}>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <Window id='overview' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'overview' ) }/>
-                        </ListItemIcon>
-                    </ListItemButton>
-                </ListItem>
+                <Tooltip title='Overview'>
+                    <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'overview')}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Window sx={{ color: 'secondary.main' }} />
+                            </ListItemIcon>
+                        </ListItemButton>
+                    </ListItem>
+                </Tooltip>
 
-                <ListItem disablePadding sx={{ my:5 }}>
+                <Tooltip title='Add Income'>
+                <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'addIncome')}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <AddCircleOutline id='addIncome' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'addIncome' ) }/>
+                            <AddCircleOutline sx={{ color: 'secondary.main' }} />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
+                </Tooltip>
 
-                <ListItem disablePadding sx={{ my:5 }}>
+                <Tooltip title='Add Outcome'>
+                <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'addOutcome')}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <RemoveCircleOutline id='addOutcome' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'addOutcome' ) }/>
+                            <RemoveCircleOutline sx={{ color: 'secondary.main' }} />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
+                </Tooltip>
 
-                <ListItem disablePadding sx={{ my:5 }}>
+                <Tooltip title='Monthly view'>
+                <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'monthlyView')}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <CalendarMonth id='monthlyView' sx={{ color:'secondary.main' }} onClick={ (event) => handleClick( event, 'monthlyView' ) }/>
+                            <CalendarMonth sx={{ color: 'secondary.main' }} />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
+                </Tooltip>
             </List>
 
-            <UserProfile />
+            <AccountMenu />
         </Drawer>
     )
 }
