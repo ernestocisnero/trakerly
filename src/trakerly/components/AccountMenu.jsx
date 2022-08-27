@@ -8,19 +8,29 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { UserLogOut } from '../../appStore/Thunks/authThunks';
 
 export function AccountMenu() {
     const { photoURL } = useSelector(state => state.auth);
+    const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = useState(null);
+
     const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const onLogOut  = ()=>{
+        dispatch( UserLogOut() );
+    }
+
     return (
         <>
             <Box sx={{ position: 'relative', bottom: -190 }}>
@@ -88,7 +98,7 @@ export function AccountMenu() {
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={ onLogOut }>
                     <ListItemIcon>
                         <Logout fontSize="small" sx={{ color: 'primary.main' }}/>
                     </ListItemIcon>
