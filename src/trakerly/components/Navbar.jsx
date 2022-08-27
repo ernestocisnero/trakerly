@@ -1,5 +1,6 @@
 import { Drawer, List, ListItem, ListItemButton, ListItemIcon } from "@mui/material"
-import { MoveToInbox } from '@mui/icons-material';
+import { Window, AddCircleOutline, RemoveCircleOutline, CalendarMonth } from '@mui/icons-material';
+
 import { UserProfile } from "./UserProfile";
 
 
@@ -20,34 +21,34 @@ export const Navbar = () => {
             anchor="left"
         >
             <List>
-                <ListItem disablePadding>
+                <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <MoveToInbox />
+                            <Window />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
 
-                <ListItem disablePadding>
+                <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <MoveToInbox />
+                            <AddCircleOutline />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
 
-                <ListItem disablePadding>
+                <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <MoveToInbox />
+                            <RemoveCircleOutline />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
 
-                <ListItem disablePadding>
+                <ListItem disablePadding sx={{ my:5 }}>
                     <ListItemButton>
                         <ListItemIcon>
-                            <MoveToInbox />
+                            <CalendarMonth />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
