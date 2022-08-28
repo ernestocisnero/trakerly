@@ -1,9 +1,16 @@
+import { DataBarChart, DataLineChart, DataPieChart, DataRadarChart } from "../components"
 import { TrakerlyLayout } from "../layout/TrakerlyLayout"
 
 export const MonthlyView = () => {
+
+  
+
   return (
     <TrakerlyLayout>
-        <h1>MonthlyView</h1>
+      <DataLineChart />
+      <DataBarChart />
+      <DataPieChart />
+      <DataRadarChart />
     </TrakerlyLayout>
   )
 }
