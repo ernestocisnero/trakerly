@@ -1,21 +1,16 @@
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Box, Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip } from '@mui/material';
+import { Settings, Logout } from '@mui/icons-material';
 import { UserLogOut } from '../../appStore/Thunks/authThunks';
 
 export function AccountMenu() {
     const { photoURL } = useSelector(state => state.auth);
-    const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = useState(null);
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const open = Boolean(anchorEl);
 
@@ -29,6 +24,11 @@ export function AccountMenu() {
 
     const onLogOut  = ()=>{
         dispatch( UserLogOut() );
+    }
+
+    const handleClickMyAccount = ( event )=>{
+        event.preventDefault();
+        navigate('../myaccount');
     }
 
     return (
@@ -85,7 +85,7 @@ export function AccountMenu() {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem>
+                <MenuItem onClick={ handleClickMyAccount }>
                     <Avatar 
                         src={photoURL ? `${photoURL}` : '/broken-image.jpg'}
                         referrerPolicy='no-referrer'
