@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    input: '', //income or expenses
+    loading:false,
+    input: '', //income or expense
+    income: null,
+    expense: null,
     category: '', // string describing the income/outcome source
-    date: '' 
+    date: null 
 }
 
 export const inputsSlice = createSlice({
@@ -11,15 +14,29 @@ export const inputsSlice = createSlice({
     initialState,
     reducers: {
         income: (state, { payload } ) => {
+            state.loading = false;
             state.input = payload.input;
+            state.income = payload.income;
+            state.expense = null;
             state.category = payload.category;
             state.date = payload.date;
         },
         outcome: (state, { payload } ) => {
+            state.loading = false;
             state.input = payload.input;
+            state.income = null;
+            state.expense = payload.expense;
             state.category = payload.category;
             state.date = payload.date;
         },
+        loading:(state) =>{
+            state.loading = true;
+            state.input = null;
+            state.income = null;
+            state.expense = null;
+            state.category = '';
+            state.date = null;
+        }
     }
 });
-export const { income, outcome } = inputsSlice.actions;
+export const { income, outcome, loading } = inputsSlice.actions;

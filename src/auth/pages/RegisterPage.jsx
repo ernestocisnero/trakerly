@@ -11,6 +11,7 @@ export const RegisterPage = () => {
   const { status } = useSelector( state => state.auth );
   
   const dispatch = useDispatch();
+  
   const { register, handleSubmit, formState:{ errors } } = useForm({ criteriaMode: "all" });
 
   const validateLength = (value)=>{ 
