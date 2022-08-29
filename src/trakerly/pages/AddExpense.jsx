@@ -1,10 +1,10 @@
 import { TrakerlyLayout } from "../layout/TrakerlyLayout"
 
 
-export const AddOutcome = () => {
+export const AddExpense = () => {
   return (
     <TrakerlyLayout>
-        <h1>AddOutcome</h1>
+        <h1>AddExpense</h1>
     </TrakerlyLayout>
   )
 }

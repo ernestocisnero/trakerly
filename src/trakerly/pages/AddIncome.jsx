@@ -16,7 +16,7 @@ const categories = [
     value: 'Investment'
   },
   {
-    value: 'O ther'
+    value: 'Other'
   },
 ];
 

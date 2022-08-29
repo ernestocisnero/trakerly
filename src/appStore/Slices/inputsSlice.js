@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    input: '', //income or outcome
+    input: '', //income or expenses
     category: '', // string describing the income/outcome source
     date: '' 
 }

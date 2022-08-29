@@ -24,8 +24,8 @@ export const Navbar = () => {
             case 'addIncome':
                 navigate("../addIncome");
                 break;
-            case 'addOutcome':
-                navigate("../addOutcome");
+            case 'addExpense':
+                navigate("../addExpense");
                 break;
             case 'monthlyView':
                 navigate("../monthlyView");
@@ -73,7 +73,7 @@ export const Navbar = () => {
                 </Tooltip>
 
                 <Tooltip title='Add Outcome'>
-                <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'addOutcome')}>
+                <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'addExpense')}>
                     <ListItemButton>
                         <ListItemIcon>
                             <RemoveCircleOutline sx={{ color: 'secondary.main' }} />

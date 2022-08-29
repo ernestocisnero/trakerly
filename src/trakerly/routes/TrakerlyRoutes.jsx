@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { Overview, AddIncome, AddOutcome, MonthlyView, MyAccount } from "../pages"
+import { Overview, AddIncome, MonthlyView, MyAccount, AddExpense } from "../pages"
 
 
 export const TrakerlyRoutes = () => {
@@ -7,7 +7,7 @@ export const TrakerlyRoutes = () => {
     <Routes>
       <Route path="/overview" element={ <Overview /> } />
       <Route path="/addIncome" element={ <AddIncome /> } />
-      <Route path="/addOutcome" element={ <AddOutcome /> } />
+      <Route path="/addExpense" element={ <AddExpense /> } />
       <Route path="/monthlyView" element={ <MonthlyView /> } />
       <Route path="/myaccount" element={ <MyAccount /> } />
     </Routes>
