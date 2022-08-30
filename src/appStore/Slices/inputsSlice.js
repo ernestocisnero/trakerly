@@ -21,7 +21,7 @@ export const inputsSlice = createSlice({
             state.category = payload.category;
             state.date = payload.date;
         },
-        outcome: (state, { payload } ) => {
+        expense: (state, { payload } ) => {
             state.loading = false;
             state.input = payload.input;
             state.income = null;
@@ -39,4 +39,4 @@ export const inputsSlice = createSlice({
         }
     }
 });
-export const { income, outcome, loading } = inputsSlice.actions;
+export const { income, expense, loading } = inputsSlice.actions;

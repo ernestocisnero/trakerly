@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Box, Button, MenuItem, TextField, Typography } from "@mui/material"
-import { addIncome } from "../../appStore/Thunks/inputsThunks"
-import { TrakerlyLayout } from "../layout/TrakerlyLayout"
+import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
+import { addIncome } from "../../appStore/Thunks/inputsThunks";
+import { TrakerlyLayout } from "../layout/TrakerlyLayout";
 
 
 const categories = [
