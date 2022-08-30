@@ -2,9 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     loadingData: false,
-    data: [
-
-    ]
+    income: [],
+    expense: []
 }
 
 export const dataSlice = createSlice({
@@ -13,13 +12,17 @@ export const dataSlice = createSlice({
     initialState,
 
     reducers: {
-        setData: (state, { payload } ) => {
-            state.data.push( payload );
+        setIncomeData: (state, { payload } ) => {
+            state.income.push( payload );
         },
 
+        setExpenseData: (state, { payload } ) => {
+            state.expense.push( payload );
+        },
+        
         loadingData: (state, { payload })=>{
             state.loadingData = payload;
         }
     }
 });
-export const { setData, loadingData } = dataSlice.actions;
+export const { setIncomeData, setExpenseData, loadingData } = dataSlice.actions;
