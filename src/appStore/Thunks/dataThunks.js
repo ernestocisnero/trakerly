@@ -4,7 +4,8 @@ import { loadingData, setExpenseData, setIncomeData } from "../Slices/dataSlice"
 
 export const getData = ()=>{
     return async ( dispatch, getState )=>{
-
+        const IncomeData = [];
+        const ExpenseData = [];
         const userID = getState().auth.uid; 
 
         dispatch( loadingData( true ) );
@@ -16,23 +17,26 @@ export const getData = ()=>{
             const qExpenseSnapshot = await getDocs(qExpense);
 
             qIncomeSnapshot.forEach((doc) => {
-                dispatch( setIncomeData( {
+                IncomeData.push({
                     category: doc.data().category,
                     input: doc.data().input,
                     income: doc.data().income,
-                } ) )
+                }) 
             })
-
+            
             qExpenseSnapshot.forEach((doc) => {
-                dispatch( setExpenseData( {
+                ExpenseData.push({
                     category: doc.data().category,
                     input: doc.data().input,
                     expense: doc.data().expense,
-                } ) )
+                })
             })
         } catch (error) {
             console.log('ERROR!', error);
         }
+
+        dispatch(setIncomeData(IncomeData));
+        dispatch(setExpenseData(ExpenseData));
 
         dispatch( loadingData( false ) );
     }

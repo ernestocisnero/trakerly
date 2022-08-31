@@ -13,11 +13,11 @@ export const dataSlice = createSlice({
 
     reducers: {
         setIncomeData: (state, { payload } ) => {
-            state.income.push( payload );
+            state.income = payload;
         },
 
         setExpenseData: (state, { payload } ) => {
-            state.expense.push( payload );
+            state.expense = payload;
         },
         
         loadingData: (state, { payload })=>{
