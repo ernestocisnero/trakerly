@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Drawer, List, ListItem, ListItemButton, ListItemIcon, Tooltip } from "@mui/material"
-import { Window, AddCircleOutline, RemoveCircleOutline, CalendarMonth } from '@mui/icons-material';
+import { Window, AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
 
 import { AccountMenu } from "./AccountMenu";
 

@@ -24,7 +24,7 @@ export const AppRouter = () => {
       const { email, displayName, photoURL, uid } = user;
       dispatch( login( { email, displayName, photoURL, uid } ) )
     })
-  },[])
+  },[dispatch])
   
   if( status === 'checking' ) return <LoadingProgress />
 

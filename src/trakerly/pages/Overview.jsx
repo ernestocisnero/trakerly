@@ -12,7 +12,7 @@ export const Overview = () => {
   console.log(expense);
   useEffect(() => {
     dispatch(getData());
-  }, [])
+  }, [dispatch])
 
   return (
     <TrakerlyLayout>
