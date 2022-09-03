@@ -19,11 +19,9 @@ export const addIncome = (incomeData) => {
         } catch (e) {
             console.error("Error adding document: ", e);
         }
-
-        
-
     }
 }
+
 export const addExpense = (expenseData) => {
     return async (dispatch, getState) => {
 

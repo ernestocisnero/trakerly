@@ -27,9 +27,6 @@ export const Navbar = () => {
             case 'addExpense':
                 navigate("../addExpense");
                 break;
-            case 'monthlyView':
-                navigate("../monthlyView");
-                break;
 
             default:
                 break;
@@ -77,16 +74,6 @@ export const Navbar = () => {
                     <ListItemButton>
                         <ListItemIcon>
                             <RemoveCircleOutline sx={{ color: 'secondary.main' }} />
-                        </ListItemIcon>
-                    </ListItemButton>
-                </ListItem>
-                </Tooltip>
-
-                <Tooltip title='Monthly view'>
-                <ListItem disablePadding sx={{ my: 5 }} onClick={(event) => handleClick(event, 'monthlyView')}>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <CalendarMonth sx={{ color: 'secondary.main' }} />
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
